@@ -93,6 +93,7 @@
   --color-white: #ffffff;
   /* Used with opacity only: card borders (black/10), image overlays (black/20). */
   --color-black: #000000;
+  --color-warm: #8a7448;
 
   /* ----------------------------------------------------------------------------------------------
    * Radius. sm (4px) is the main radius. rounded-full is the pill (Figma r33554400).

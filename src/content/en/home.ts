@@ -126,4 +126,17 @@ export const home: HomePageContent = {
     text: "Have a business challenge or a new idea? Let's discuss how TechSalem can help you move forward.",
     button: { label: 'Book a consultation', href: '/booking' },
   },
+  roles: {
+    title: 'Some of the roles we work with',
+    items: [
+      { title: 'Cloud Engineer' },
+      { title: 'DevOps Engineer' },
+      { title: 'Backend Developer' },
+      { title: 'Frontend Developer' },
+      { title: 'Infrastructure Specialist' },
+      { title: 'Cybersecurity Consultant' },
+      { title: 'Azure Specialist' },
+      { title: 'System Architect' },
+    ],
+  },
 };

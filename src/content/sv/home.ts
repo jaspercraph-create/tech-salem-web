@@ -79,10 +79,35 @@ export const home: HomePageContent = {
     eyebrow: 'Varför TechSalem',
     title: 'Byggt kring din verksamhet, inte en mall.',
     items: [
-      { title: 'Skräddarsydda affärslösningar', text: '' },
-      { title: 'Professionell expertis', text: '' },
-      { title: 'Strategiskt tänkande', text: '' },
-      { title: 'Pålitligt partnerskap', text: '' },
+      {
+        title: 'Skräddarsydda affärslösningar',
+        text: 'Vi formar varje lösning utifrån dina mål, förutsättningar och verksamhetens verkliga behov.',
+      },
+      {
+        title: 'Professionell expertis',
+        text: 'Teknisk och affärsmässig kompetens kombineras för att göra komplexa beslut tydligare.',
+      },
+      {
+        title: 'Strategiskt tänkande',
+        text: 'Vi kopplar dagens prioriteringar till ett hållbart nästa steg och en tydlig leveransväg.',
+      },
+      {
+        title: 'Pålitligt partnerskap',
+        text: 'Tydlig kommunikation, delaktighet och ansvar genom hela uppdraget.',
+      },
+    ],
+  },
+  roles: {
+    title: 'Några av rollerna vi arbetar med',
+    items: [
+      { title: 'Cloud Engineer' },
+      { title: 'DevOps Engineer' },
+      { title: 'Backend Developer' },
+      { title: 'Frontend Developer' },
+      { title: 'Infrastructure Specialist' },
+      { title: 'Cybersecurity Consultant' },
+      { title: 'Azure Specialist' },
+      { title: 'System Architect' },
     ],
   },
   support: {

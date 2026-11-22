@@ -196,6 +196,19 @@ export interface HomePageContent {
     cards: Tuple2<{ icon: IconName; title: string; text: string; link: InternalLinkItem }>;
   };
   cta: CtaBannerContent;
+  roles: {
+    title: string;
+    items: readonly [
+      { title: string },
+      { title: string },
+      { title: string },
+      { title: string },
+      { title: string },
+      { title: string },
+      { title: string },
+      { title: string },
+    ];
+  };
 }
 export interface AboutPageContent {
   meta: PageMeta;

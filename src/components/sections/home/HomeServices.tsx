@@ -34,38 +34,43 @@ export function HomeServices({ content }: HomeServicesProps) {
         data-reveal
         className="mt-12 grid gap-5 sm:grid-cols-2 lg:-mx-2.75 lg:mt-16 lg:grid-cols-4"
       >
-        {content.cards.map((card, index) => (
-          <li
-            key={card.title}
-            className="group hover:shadow-lg flex min-h-72 flex-col justify-between rounded-lg border border-black/10 bg-white p-6 transition-all hover:-translate-y-1 hover:border-purple/30"
-          >
-            <div className="flex items-center justify-between">
-              <span className="flex size-11 items-center justify-center rounded-md bg-lavender text-purple">
-                <Icon name={card.icon} className="size-5" />
-              </span>
-              <span aria-hidden="true" className="text-inter-caption font-semibold text-line">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-            </div>
+        {content.cards.map((card, index) => {
+          const tones = ['bg-purple', 'bg-navy', 'bg-charcoal', 'bg-warm'];
+          const tone = tones[index] ?? 'bg-navy';
 
-            <div>
-              {card.areaLabel ? (
-                <p className="mb-3 text-inter-caption font-semibold tracking-caps-13 text-red uppercase">
-                  {card.areaLabel}
-                </p>
-              ) : null}
-              <h3 className="text-inter-title text-navy">{card.title}</h3>
-              <p className="mt-3 text-inter-body text-ink-muted">{card.text}</p>
-              {card.link ? (
-                <ArrowLink
-                  link={card.link}
-                  icon="arrow-up-right"
-                  className="mt-5 flex w-fit gap-1 text-inter-label text-purple"
-                />
-              ) : null}
-            </div>
-          </li>
-        ))}
+          return (
+            <li
+              key={card.title}
+              className={`group hover:shadow-lg flex min-h-72 flex-col justify-between rounded-lg p-6 text-white transition-all hover:-translate-y-1 ${tone}`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="flex size-11 items-center justify-center rounded-md border border-white/20 bg-white/10 text-white">
+                  <Icon name={card.icon} className="size-5" />
+                </span>
+                <span aria-hidden="true" className="text-inter-caption font-semibold text-white/50">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div>
+                {card.areaLabel ? (
+                  <p className="mb-3 text-inter-caption font-semibold tracking-caps-13 text-white/75 uppercase">
+                    {card.areaLabel}
+                  </p>
+                ) : null}
+                <h3 className="text-inter-title text-white">{card.title}</h3>
+                <p className="mt-3 text-inter-body text-white/75">{card.text}</p>
+                {card.link ? (
+                  <ArrowLink
+                    link={card.link}
+                    icon="arrow-up-right"
+                    className="mt-5 flex w-fit gap-1 text-white"
+                  />
+                ) : null}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );
