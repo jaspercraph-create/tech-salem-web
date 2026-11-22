@@ -22,9 +22,6 @@ const values = [
   },
 ] satisfies AboutPageContent['values']['items'];
 
-const capabilitiesText =
-  'No unnecessary layers. No one-size-fits-all playbook. Just thoughtful expertise applied where it matters.';
-
 export const about: AboutPageContent = {
   meta: {
     title: 'About',
@@ -64,12 +61,32 @@ export const about: AboutPageContent = {
     label: '03 / Our capabilities',
     title: 'A focused, human approach.',
     titleAccent: 'Every day.',
-    text: capabilitiesText,
+    text: 'We combine technical understanding with clear business thinking—bringing the right expertise to each stage of the engagement.',
     items: [
-      ...values,
-      { title: 'Understand the business context', text: capabilitiesText },
-      { title: 'Define the opportunity clearly', text: capabilitiesText },
-      { title: 'Move from direction to action', text: capabilitiesText },
+      {
+        title: 'Understand the business context',
+        text: 'We explore your goals, challenges and operating environment before recommending the next step.',
+      },
+      {
+        title: 'Clarify technology decisions',
+        text: 'We translate technical choices into clear benefits, risks, costs and practical implications.',
+      },
+      {
+        title: 'Shape practical solutions',
+        text: 'We turn requirements and opportunities into solutions designed for your organisation and its people.',
+      },
+      {
+        title: 'Build modern digital experiences',
+        text: 'We develop clear, reliable websites and applications that support real business needs and can grow over time.',
+      },
+      {
+        title: 'Improve ways of working',
+        text: 'We identify inefficiencies, simplify processes and connect digital improvements with measurable outcomes.',
+      },
+      {
+        title: 'Support lasting change',
+        text: 'We stay close to implementation, handover and follow-through so progress continues beyond delivery.',
+      },
     ],
   },
   quote: {

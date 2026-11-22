@@ -25,12 +25,11 @@ export async function Header() {
 
   const navLinks = [
     site.navigation.home,
-    site.navigation.support,
+    site.navigation.about,
     site.navigation.services,
     site.navigation.contact,
-    site.navigation.about,
   ];
-  const { cta } = site.header;
+  const { cta, supportCta } = site.header;
 
   return (
     <header className="relative z-40 bg-white">
@@ -52,6 +51,9 @@ export async function Header() {
             <LanguageSwitch />
           </Suspense>
           <AdminDashboardLink />
+          <ButtonLink href={supportCta.href} className="px-4">
+            {supportCta.label}
+          </ButtonLink>
           <ButtonLink href={cta.href}>{cta.label}</ButtonLink>
         </div>
 
@@ -67,6 +69,9 @@ export async function Header() {
             </Suspense>
             <div className="flex items-center gap-3">
               <AdminDashboardLink />
+              <ButtonLink href={supportCta.href} className="w-full">
+                {supportCta.label}
+              </ButtonLink>
               <ButtonLink href={cta.href} className="w-full">
                 {cta.label}
               </ButtonLink>

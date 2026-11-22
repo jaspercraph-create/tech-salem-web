@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 import { Link, usePathname } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -22,17 +22,11 @@ interface LanguageSwitchProps {
 export function LanguageSwitch({ className }: LanguageSwitchProps) {
   const activeLocale = useLocale();
   const pathname = usePathname();
-  const t = useTranslations();
-
-  const labels: Record<Locale, { short: string; name: string }> = {
-    en: { short: t('lang.en'), name: t('lang.enName') },
-    sv: { short: t('lang.sv'), name: t('lang.svName') },
-  };
 
   return (
     <div
       role="group"
-      aria-label={t('a11y.switchLanguage')}
+      aria-label="Switch language"
       className={cn(
         'inline-flex rounded-full bg-cloud p-1 forced-color-adjust-none',
         // Windows High Contrast: system colours, the active language as a highlighted pill.

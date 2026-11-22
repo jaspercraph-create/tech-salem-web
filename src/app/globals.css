@@ -270,8 +270,8 @@
   --text-title-20--letter-spacing: 0em;
   --text-title-20--font-weight: 700;
 
-  /* 20/28 ExtraBold -0.64px: "TechSalem" logo text */
-  --text-logo: 20px;
+  /* 21/28 ExtraBold -0.64px: slightly enlarged "TechSalem" logo text */
+  --text-logo: 21px;
   --text-logo--line-height: 28px;
   --text-logo--letter-spacing: -0.032em;
   --text-logo--font-weight: 800;

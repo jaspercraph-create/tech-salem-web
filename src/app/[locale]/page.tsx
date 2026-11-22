@@ -23,7 +23,7 @@ export default async function HomePage() {
       <HomeServices content={home.services} />
       <HomeAbout content={home.about} />
       <HomeWhy content={home.why} />
-      <HomeSupport content={home.support} />
+      {/* <HomeSupport content={home.support} /> */}
       <CtaBanner content={home.cta} id="home-cta-title" />
     </>
   );

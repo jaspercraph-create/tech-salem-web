@@ -9,11 +9,6 @@ const heroImage = {
   focalPoint: '68% 30%',
 } satisfies HomePageContent['hero']['image'];
 
-const serviceCardText =
-  'A short description of this service area will appear here once the final service list is confirmed.';
-const whyItemText = "A clear, collaborative approach with your organization's goals at the center.";
-const supportCardText = 'Editable introduction to a dedicated support area.';
-
 export const home: HomePageContent = {
   meta: {
     title: 'TechSalem | Technology & business consulting',
@@ -32,23 +27,36 @@ export const home: HomePageContent = {
   },
   services: {
     eyebrow: 'Services',
-    title: 'How We Help Businesses Move Forward',
-    text: 'Practical expertise and tailored solutions to help businesses overcome challenges and achieve their goals.',
+    title: 'Where we make the greatest difference',
+    text: 'Practical expertise and tailored solutions that help businesses solve challenges and create lasting results.',
     cards: [
       {
         icon: 'network',
+        areaLabel: 'Development',
         title: 'Custom website development',
-        text: 'We build custom websites of all kinds, from simple sites to complex, advanced web applications. Contact us directly to discuss your project.',
-        link: { label: 'Learn More', href: '/services' },
+        text: 'Modern, tailored websites and digital solutions—from clear, simple sites to advanced, complex applications.',
+        link: { label: 'Learn more', href: '/services' },
       },
       {
         icon: 'workflow',
-        title: 'Service Area 02',
-        text: serviceCardText,
-        link: { label: 'Learn More', href: '/services' },
+        areaLabel: 'Consulting',
+        title: 'Technology and business consulting',
+        text: 'Clear decision support for systems, digital investments and organisational change—connected to business value, risk and long-term sustainability.',
+        link: { label: 'Learn more', href: '/services' },
       },
-      { icon: 'chart-column', title: 'Service Area 03', text: serviceCardText },
-      { icon: 'shield-check', title: 'Service Area 04', text: serviceCardText },
+      {
+        icon: 'chart-column',
+        areaLabel: 'Improvement',
+        title: 'Digital transformation and optimisation',
+        text: 'We examine workflows and existing systems, identify bottlenecks and prioritise improvements that simplify day-to-day operations.',
+      },
+      {
+        icon: 'shield-check',
+        areaLabel: 'IT support',
+        title: 'Reliable operations and ongoing support',
+        text: 'Practical technical support that helps organisations reduce disruptions, resolve issues quickly and work more securely and predictably.',
+        link: { label: 'Explore support', href: '/support/support-01' },
+      },
     ],
   },
   about: {
@@ -71,10 +79,22 @@ export const home: HomePageContent = {
     eyebrow: 'Why TechSalem',
     title: 'Built around your business, not a template.',
     items: [
-      { title: 'Tailored business solutions', text: whyItemText },
-      { title: 'Professional expertise', text: whyItemText },
-      { title: 'Strategic thinking', text: whyItemText },
-      { title: 'Reliable partnership', text: whyItemText },
+      {
+        title: 'Tailored business solutions',
+        text: "A clear, collaborative approach with your organization's goals at the center.",
+      },
+      {
+        title: 'Professional expertise',
+        text: "A clear, collaborative approach with your organization's goals at the center.",
+      },
+      {
+        title: 'Strategic thinking',
+        text: "A clear, collaborative approach with your organization's goals at the center.",
+      },
+      {
+        title: 'Reliable partnership',
+        text: "A clear, collaborative approach with your organization's goals at the center.",
+      },
     ],
   },
   support: {
@@ -89,14 +109,14 @@ export const home: HomePageContent = {
     cards: [
       {
         icon: 'headphones',
-        title: 'Support area 01',
-        text: supportCardText,
+        title: 'IT support for home',
+        text: 'Practical support for computers, networks and everyday IT—on site or remotely.',
         link: { label: 'Explore support', href: '/support/support-01' },
       },
       {
         icon: 'headphones',
-        title: 'Support area 02',
-        text: supportCardText,
+        title: 'IT support for business',
+        text: 'Reliable IT operations and practical support that keep small businesses productive and secure.',
         link: { label: 'Explore support', href: '/support/support-02' },
       },
     ],

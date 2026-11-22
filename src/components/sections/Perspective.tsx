@@ -30,7 +30,7 @@ export function Perspective({ content, id, labelSize, className }: PerspectivePr
           className="text-h2-xl-snug text-zinc-950"
           accentClassName="text-red"
         />
-        <p className="mt-9 max-w-168 text-body-loose text-ink-muted">{content.text}</p>
+        <p className="mt-9 max-w-2xl text-body-loose text-ink-muted">{content.text}</p>
       </div>
     </Section>
   );

@@ -1,7 +1,6 @@
 /*
- * UTKAST – måste granskas och godkännas av kunden (helst även av en jurist) före lansering.
- * Fyll i alla platshållare inom hakparentes: [Company legal name], [Org. number],
- * [Postal address], [retention period, e.g. 24 months].
+ * Policyn beskriver hur TechSalem hanterar personuppgifter.
+ * Juridisk slutgranskning rekommenderas före offentlig lansering.
  */
 import type { PrivacyPolicyPageContent } from '@/types/content';
 
@@ -33,7 +32,7 @@ export const privacyPolicy: PrivacyPolicyPageContent = {
         {
           type: 'paragraph',
           text: [
-            'Personuppgiftsansvarig är [Company legal name], organisationsnummer [Org. number], [Postal address]. Har du frågor om policyn når du oss på ',
+            'Personuppgiftsansvarig är TechSalem AB, organisationsnummer 559608-4847, Svampstigen 101, 144 40 Rönninge. Har du frågor om policyn når du oss på ',
             email,
             '.',
           ],
@@ -81,7 +80,7 @@ export const privacyPolicy: PrivacyPolicyPageContent = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Uppgifter från bokningar och kontakter sparar vi så länge vi behöver dem för att hantera din förfrågan och ett eventuellt uppdrag som följer av den, och därefter som längst [retention period, e.g. 24 months]. Sedan raderar vi dem. Om lagen kräver att vissa uppgifter sparas längre, till exempel för bokföringen, sparar vi dem enbart för det ändamålet.',
+          text: 'Uppgifter från bokningar och kontakter sparar vi så länge vi behöver dem för att hantera din förfrågan och ett eventuellt uppdrag som följer av den, och därefter som längst 24 månader. Sedan raderar vi dem. Om lagen kräver att vissa uppgifter sparas längre, till exempel för bokföringen, sparar vi dem enbart för det ändamålet.',
         },
         {
           type: 'paragraph',

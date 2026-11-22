@@ -13,6 +13,7 @@ export const site: SiteSettings = {
   navigation,
   header: {
     cta: { label: 'Book a consultation', href: '/booking' },
+    supportCta: { label: 'IT Support', href: '/support/support-01' },
   },
   footer: {
     tagline:
@@ -38,9 +39,16 @@ export const site: SiteSettings = {
     connect: {
       heading: 'Connect',
       links: {
-       
-        linkedin: { label: 'LinkedIn', href: '#', openInNewTab: true },
-        facebook: { label: 'Facebook', href: '#', openInNewTab: true },
+        linkedin: {
+          label: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/jasperorieny',
+          openInNewTab: true,
+        },
+        facebook: {
+          label: 'Facebook',
+          href: 'https://www.facebook.com/share/18tQ7RMEeC/',
+          openInNewTab: true,
+        },
         infoEmail: { label: 'info@techsalem.se', href: 'mailto:info@techsalem.se' },
         supportEmail: { label: 'support@techsalem.se', href: 'mailto:support@techsalem.se' },
       },

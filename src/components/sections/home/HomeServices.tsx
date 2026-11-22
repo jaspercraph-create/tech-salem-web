@@ -2,7 +2,7 @@ import { ArrowLink } from '@/components/ui/ArrowLink';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Icon } from '@/components/ui/Icon';
 import { Section } from '@/components/ui/Section';
-import { cn } from '@/lib/cn';
+
 import type { HomePageContent } from '@/types/content';
 
 interface HomeServicesProps {
@@ -32,33 +32,35 @@ export function HomeServices({ content }: HomeServicesProps) {
 
       <ul
         data-reveal
-        className="mt-12 grid gap-3.25 md:grid-cols-2 lg:-mx-2.75 lg:mt-16 lg:grid-cols-4"
+        className="mt-12 grid gap-5 sm:grid-cols-2 lg:-mx-2.75 lg:mt-16 lg:grid-cols-4"
       >
         {content.cards.map((card, index) => (
           <li
             key={card.title}
-            className="flex flex-col justify-between gap-10 rounded-2xl border border-black/10 bg-white p-6 md:min-h-74"
+            className="group hover:shadow-lg flex min-h-72 flex-col justify-between rounded-lg border border-black/10 bg-white p-6 transition-all hover:-translate-y-1 hover:border-purple/30"
           >
             <div className="flex items-center justify-between">
               <span className="flex size-11 items-center justify-center rounded-md bg-lavender text-purple">
                 <Icon name={card.icon} className="size-5" />
               </span>
-              <span aria-hidden="true" className="text-inter-caption text-line">
+              <span aria-hidden="true" className="text-inter-caption font-semibold text-line">
                 {String(index + 1).padStart(2, '0')}
               </span>
             </div>
 
             <div>
+              {card.areaLabel ? (
+                <p className="mb-3 text-inter-caption font-semibold tracking-caps-13 text-red uppercase">
+                  {card.areaLabel}
+                </p>
+              ) : null}
               <h3 className="text-inter-title text-navy">{card.title}</h3>
-              {/* Spec: 5px above the text on cards with a link, 16px on cards without. */}
-              <p className={cn('text-inter-body text-ink-muted', card.link ? 'mt-1.25' : 'mt-4')}>
-                {card.text}
-              </p>
+              <p className="mt-3 text-inter-body text-ink-muted">{card.text}</p>
               {card.link ? (
                 <ArrowLink
                   link={card.link}
                   icon="arrow-up-right"
-                  className="mt-2 flex w-fit gap-1 text-inter-label text-purple"
+                  className="mt-5 flex w-fit gap-1 text-inter-label text-purple"
                 />
               ) : null}
             </div>

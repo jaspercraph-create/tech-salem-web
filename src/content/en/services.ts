@@ -13,38 +13,38 @@ export const services: ServicesPageContent = {
   meta: {
     title: 'Services',
     description:
-      "TechSalem's consulting and custom website development services, from simple websites to complex, advanced web applications.",
+      "TechSalem's services in custom web development, business consulting and digital transformation—from strategy to practical solutions.",
     image: heroImage,
   },
   hero: {
     eyebrow: 'Consulting & website development',
     title: 'Practical expertise for meaningful progress.',
-    text: 'A focused consulting portfolio designed around your priorities. We also build custom websites, from simple sites to complex, advanced web applications. Contact us directly to discuss your website project.',
+    text: 'We help organisations understand their real needs, prioritise the next step and turn technology into measurable business improvement. Our services include custom website development, business consulting and digital transformation.',
     image: heroImage,
     primaryCta: { label: 'Start a conversation', href: '/contact' },
   },
   perspective: {
     label: '01 / Our perspective',
-    title: 'One services page. One connected view.',
-    titleAccent: 'Consulting services.',
-    text: 'We keep the offering intentionally clear. Each engagement is shaped around the business outcome, the current environment, and what your team needs to move forward.',
+    title: 'A clear focus. One connected view.',
+    titleAccent: 'Sustainable outcomes.',
+    text: 'We start with the organisation’s goals and current situation. From there, we shape a practical engagement where technology, processes and people work together to create lasting value.',
   },
   services: {
     areaLabel: 'Service',
     items: [
       {
         title: 'Custom website development',
-        text: 'We create custom websites of every kind, from simple sites to complex, advanced web applications. Contact us directly to discuss your project.',
+        text: 'We design and build modern websites and digital applications around your business goals—from clear, streamlined solutions to advanced, integration-led platforms.',
         tone: 'navy',
       },
       {
-        title: 'Consulting service 02',
-        text: 'Editable placeholder for a practical transformation or optimization offer.',
+        title: 'Technology and business consulting',
+        text: 'Get a clear decision framework for new systems, digital investments or organisational change. We connect technology choices and delivery options with value, risk and long-term impact.',
         tone: 'lavender',
       },
       {
-        title: 'Consulting service 03',
-        text: 'Editable placeholder for another focused, outcome-led consulting service.',
+        title: 'Digital transformation and optimisation',
+        text: 'We examine your workflows and existing systems, identify bottlenecks and help prioritise improvements that simplify everyday work and strengthen the organisation.',
         tone: 'red',
       },
     ],
@@ -55,7 +55,7 @@ export const services: ServicesPageContent = {
         width: 1600,
         height: 1200,
       },
-      text: 'Expertise shaped around the context.',
+      text: 'Expertise shaped around your context.',
     },
   },
   process: {
@@ -63,15 +63,24 @@ export const services: ServicesPageContent = {
     title: 'From question to clear direction.',
     text: processText,
     steps: [
-      { title: 'Discover the real business need', text: processText },
-      { title: 'Shape a focused engagement', text: processText },
-      { title: 'Deliver practical next steps', text: processText },
+      {
+        title: 'Understand the business need',
+        text: 'We explore your goals, challenges and current environment through open discussion and a shared analysis of what needs to improve.',
+      },
+      {
+        title: 'Shape a focused engagement',
+        text: 'Together, we prioritise the right scope, approach and deliverables—with clear ownership, timelines and expected outcomes.',
+      },
+      {
+        title: 'Deliver practical next steps',
+        text: 'We turn decisions into practical action and hand over the solution so ongoing ownership, operation and development remain clear.',
+      },
     ],
   },
   next: {
     label: '03 / Next step',
     title: 'The right engagement starts with the right question.',
-    text: 'Tell us what you need to change, improve, or understand. We will help shape the next step.',
+    text: 'Tell us what you need to change, improve or understand. We will help shape the next step.',
     link: { label: 'Start a conversation', href: '/contact' },
   },
 };

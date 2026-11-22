@@ -26,12 +26,12 @@ export function LogoMark({
 
   return (
     <svg
-      width="36"
-      height="36"
+      width="40"
+      height="40"
       viewBox="0 0 36 36"
       aria-hidden="true"
       focusable="false"
-      className={cn('size-9 shrink-0', className)}
+      className={cn('size-10 shrink-0', className)}
     >
       <rect width="36" height="36" rx="4" className={isLight ? 'fill-navy' : 'fill-white'} />
       <rect

@@ -1,7 +1,6 @@
 /*
- * DRAFT – must be reviewed and approved by the client (and ideally a legal adviser) before launch.
- * Fill in every placeholder in square brackets: [Company legal name], [Org. number],
- * [Postal address], [retention period, e.g. 24 months].
+ * This policy describes how TechSalem handles personal data.
+ * Review by a legal adviser is still recommended before launch.
  */
 import type { PrivacyPolicyPageContent } from '@/types/content';
 
@@ -33,7 +32,7 @@ export const privacyPolicy: PrivacyPolicyPageContent = {
         {
           type: 'paragraph',
           text: [
-            'The data controller is [Company legal name], organisation number [Org. number], [Postal address]. You can reach us about anything in this policy at ',
+            'The data controller is TechSalem AB, organisation number 559608-4847, Svampstigen 101, 144 40 Rönninge, Sweden. You can reach us about anything in this policy at ',
             email,
             '.',
           ],
@@ -81,7 +80,7 @@ export const privacyPolicy: PrivacyPolicyPageContent = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'We keep booking and contact data for as long as we need it to handle your request and any assignment that follows from it, and then for no longer than [retention period, e.g. 24 months]. After that we delete it. If the law requires us to keep certain information longer, for example for accounting, we keep it only for that purpose.',
+          text: 'We keep booking and contact data for as long as we need it to handle your request and any assignment that follows from it, and then for no longer than 24 months. After that we delete it. If the law requires us to keep certain information longer, for example for accounting, we keep it only for that purpose.',
         },
         {
           type: 'paragraph',

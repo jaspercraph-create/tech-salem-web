@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server';
-import { MapPin, Phone, Building2, CreditCard, FileText, Smartphone } from 'lucide-react';
+import { MapPin, Phone, Building2 } from 'lucide-react';
 
 import { ContentLink } from '@/components/ui/ContentLink';
 import { Logo } from '@/components/ui/Logo';
@@ -25,7 +25,6 @@ export async function Footer() {
     <footer data-menu-inert className="bg-navy-dark pt-20 pb-10 on-dark">
       <div className="site-container">
         <div className="mx-auto max-w-inner">
-          
           <div className="grid gap-x-8 gap-y-10 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-5">
             <div>
               <Logo
@@ -37,7 +36,6 @@ export async function Footer() {
               <p className="mt-7.5 max-w-62 text-body-sm-loose text-white/55">{footer.tagline}</p>
             </div>
 
-            
             <div>
               <h2 className="text-button text-white">Company Info</h2>
               <ul className="mt-5 grid gap-3 text-body-sm text-white/55">
@@ -47,32 +45,19 @@ export async function Footer() {
                 </li>
                 <li className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>Svampstigen 101<br />14440 Rönninge</span>
+                  <span>
+                    Svampstigen 101
+                    <br />
+                    14440 Rönninge
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>0700141376, 0704005858</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>Orgnmr: 559608-4847</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>Moms: SE559608484701</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>F-Skatt godkänt</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Smartphone className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>Swish: 1237102130</span>
-                </li>
               </ul>
             </div>
 
-            
             {columns.map((column) => (
               <nav key={column.id} aria-labelledby={column.id}>
                 <h2 id={column.id} className="text-button text-white">

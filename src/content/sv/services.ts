@@ -13,38 +13,38 @@ export const services: ServicesPageContent = {
   meta: {
     title: 'Tjänster',
     description:
-      'TechSalems konsulttjänster och skräddarsydda webbutveckling, från enkla webbplatser till komplexa, avancerade webbapplikationer.',
+      'TechSalems tjänster inom skräddarsydd webbutveckling, affärsrådgivning och digital transformation – från strategi till praktiska lösningar.',
     image: heroImage,
   },
   hero: {
     eyebrow: 'Konsulttjänster och webbutveckling',
     title: 'Praktisk expertis för verkliga framsteg.',
-    text: 'Ett fokuserat konsulterbjudande utformat efter dina prioriteringar. Vi skapar också skräddarsydda webbplatser, från enkla webbplatser till komplexa, avancerade webbapplikationer. Kontakta oss direkt för att prata om ditt webbprojekt.',
+    text: 'Vi hjälper organisationer att förstå rätt behov, prioritera nästa steg och omsätta teknik i konkreta affärsförbättringar. Erbjudandet omfattar skräddarsydd webbutveckling, verksamhetsrådgivning och digital förändring.',
     image: heroImage,
     primaryCta: { label: 'Starta ett samtal', href: '/contact' },
   },
   perspective: {
     label: '01 / Vårt perspektiv',
-    title: 'En tjänstesida. En samlad bild.',
-    titleAccent: 'Konsulttjänster.',
-    text: 'Vi håller erbjudandet medvetet tydligt. Varje uppdrag formas utifrån affärsmålet, den nuvarande miljön och vad ditt team behöver för att komma vidare.',
+    title: 'Ett tydligt fokus. En samlad helhet.',
+    titleAccent: 'Hållbara resultat.',
+    text: 'Vi börjar i verksamhetens mål och nuvarande situation. Därefter formar vi ett genomförbart uppdrag där teknik, processer och människor arbetar tillsammans för att skapa långsiktig effekt.',
   },
   services: {
     areaLabel: 'Tjänst',
     items: [
       {
         title: 'Skräddarsydd webbutveckling',
-        text: 'Vi skapar skräddarsydda webbplatser av alla slag – från enkla webbplatser till komplexa, avancerade webbapplikationer. Kontakta oss direkt för att prata om ditt projekt.',
+        text: 'Vi designar och utvecklar moderna webbplatser och digitala applikationer utifrån verksamhetens mål – från snabba, tydliga lösningar till avancerade, integrationsbaserade system.',
         tone: 'navy',
       },
       {
-        title: 'Konsulttjänst 02',
-        text: 'Redigerbar platshållare för ett praktiskt erbjudande inom förändring eller effektivisering.',
+        title: 'Teknisk och affärsmässig rådgivning',
+        text: 'Få ett tydligt beslutsunderlag inför nya system, digitala satsningar eller förändringar. Vi kopplar teknikval och leveransmöjligheter till affärsnytta, risk och långsiktighet.',
         tone: 'lavender',
       },
       {
-        title: 'Konsulttjänst 03',
-        text: 'Redigerbar platshållare för ytterligare en fokuserad, resultatinriktad konsulttjänst.',
+        title: 'Digital transformation och optimering',
+        text: 'Vi kartlägger arbetssätt och befintliga system, identifierar flaskhalsar och hjälper er att prioritera förbättringar som förenklar vardagen och stärker verksamheten.',
         tone: 'red',
       },
     ],
@@ -55,7 +55,7 @@ export const services: ServicesPageContent = {
         width: 1600,
         height: 1200,
       },
-      text: 'Expertis formad efter sammanhanget.',
+      text: 'Expertis som formas efter ert sammanhang.',
     },
   },
   process: {
@@ -63,9 +63,18 @@ export const services: ServicesPageContent = {
     title: 'Från fråga till tydlig riktning.',
     text: processText,
     steps: [
-      { title: 'Upptäck det verkliga affärsbehovet', text: processText },
-      { title: 'Forma ett fokuserat uppdrag', text: processText },
-      { title: 'Leverera praktiska nästa steg', text: processText },
+      {
+        title: 'Förstå verksamhetsbehovet',
+        text: 'Vi lyfter målen, utmaningarna och nuläget genom öppna samtal och en gemensam analys av vad som behöver förbättras.',
+      },
+      {
+        title: 'Forma ett fokuserat uppdrag',
+        text: 'Tillsammans prioriterar vi rätt omfattning, arbetsmetod och leverabler – med tydliga ansvar, tidsramar och förväntade resultat.',
+      },
+      {
+        title: 'Leverera konkreta nästa steg',
+        text: 'Vi omsätter beslut i praktiska handlingar och lämnar över lösningen på ett sätt som gör fortsatt drift, utveckling och ägarskap tydligt.',
+      },
     ],
   },
   next: {

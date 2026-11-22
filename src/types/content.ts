@@ -117,6 +117,7 @@ export interface SiteSettings {
   };
   header: {
     cta: InternalLinkItem;
+    supportCta: InternalLinkItem;
   };
   footer: {
     tagline: string;
@@ -171,7 +172,7 @@ export interface HomePageContent {
       icon: IconName;
       title: string;
       text: string;
-      /** Optional: cards 3 and 4 have no link in the design. */
+      areaLabel?: string;
       link?: InternalLinkItem;
     }>;
   };

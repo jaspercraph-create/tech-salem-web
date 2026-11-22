@@ -9,12 +9,6 @@ const heroImage = {
   focalPoint: '68% 30%',
 } satisfies HomePageContent['hero']['image'];
 
-const serviceCardText =
-  'En kort beskrivning av tjänsteområdet visas här när den slutliga tjänstelistan är fastställd.';
-const whyItemText =
-  'Ett tydligt och samarbetsinriktat arbetssätt med organisationens mål i centrum.';
-const supportCardText = 'Redigerbar introduktion till ett dedikerat supportområde.';
-
 export const home: HomePageContent = {
   meta: {
     title: 'TechSalem | Teknik- och verksamhetsrådgivning',
@@ -33,23 +27,36 @@ export const home: HomePageContent = {
   },
   services: {
     eyebrow: 'Tjänster',
-    title: 'Så hjälper vi företag framåt',
-    text: 'Praktisk expertis och skräddarsydda lösningar som hjälper företag att lösa utmaningar och nå sina mål.',
+    title: 'Där vi gör störst skillnad',
+    text: 'Praktisk expertis och skräddarsydda lösningar som hjälper företag att lösa utmaningar och skapa hållbara resultat.',
     cards: [
       {
         icon: 'network',
+        areaLabel: 'Utveckling',
         title: 'Skräddarsydd webbutveckling',
-        text: 'Vi skapar skräddarsydda webbplatser av alla slag – från enkla webbplatser till komplexa, avancerade webbapplikationer. Kontakta oss direkt för att prata om ditt projekt.',
+        text: 'Moderna, anpassade webbplatser och webblösningar – från en tydlig enkel webbplats till avancerade, komplexa applikationer.',
         link: { label: 'Läs mer', href: '/services' },
       },
       {
         icon: 'workflow',
-        title: 'Tjänsteområde 02',
-        text: serviceCardText,
+        areaLabel: 'Rådgivning',
+        title: 'Teknisk och affärsmässig rådgivning',
+        text: 'Tydliga beslutsunderlag för system, digitala satsningar och förändringar – kopplade till affärsnytta, risk och långsiktig hållbarhet.',
         link: { label: 'Läs mer', href: '/services' },
       },
-      { icon: 'chart-column', title: 'Tjänsteområde 03', text: serviceCardText },
-      { icon: 'shield-check', title: 'Tjänsteområde 04', text: serviceCardText },
+      {
+        icon: 'chart-column',
+        areaLabel: 'Förbättring',
+        title: 'Digital transformation och optimering',
+        text: 'Vi kartlägger arbetssätt och befintliga system, identifierar flaskhalsar och prioriterar förbättringar som förenklar vardagen.',
+      },
+      {
+        icon: 'shield-check',
+        areaLabel: 'IT-support',
+        title: 'Trygg drift och löpande support',
+        text: 'Praktisk teknisk support som hjälper verksamheten att minska störningar, lösa problem snabbt och arbeta mer säkert och förutsägbart.',
+        link: { label: 'Utforska support', href: '/support/support-01' },
+      },
     ],
   },
   about: {
@@ -72,10 +79,10 @@ export const home: HomePageContent = {
     eyebrow: 'Varför TechSalem',
     title: 'Byggt kring din verksamhet, inte en mall.',
     items: [
-      { title: 'Skräddarsydda affärslösningar', text: whyItemText },
-      { title: 'Professionell expertis', text: whyItemText },
-      { title: 'Strategiskt tänkande', text: whyItemText },
-      { title: 'Pålitligt partnerskap', text: whyItemText },
+      { title: 'Skräddarsydda affärslösningar', text: '' },
+      { title: 'Professionell expertis', text: '' },
+      { title: 'Strategiskt tänkande', text: '' },
+      { title: 'Pålitligt partnerskap', text: '' },
     ],
   },
   support: {
@@ -90,14 +97,14 @@ export const home: HomePageContent = {
     cards: [
       {
         icon: 'headphones',
-        title: 'Supportområde 01',
-        text: supportCardText,
+        title: 'IT-support i hemmet',
+        text: 'Praktisk hjälp med datorer, nätverk och IT i hemmet – på plats eller på distans.',
         link: { label: 'Utforska support', href: '/support/support-01' },
       },
       {
         icon: 'headphones',
-        title: 'Supportområde 02',
-        text: supportCardText,
+        title: 'IT-support för företag',
+        text: 'Pålitlig drift och praktisk support som hjälper småföretag att arbeta säkert och effektivt.',
         link: { label: 'Utforska support', href: '/support/support-02' },
       },
     ],

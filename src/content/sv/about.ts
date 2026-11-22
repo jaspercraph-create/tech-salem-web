@@ -22,9 +22,6 @@ const values = [
   },
 ] satisfies AboutPageContent['values']['items'];
 
-const capabilitiesText =
-  'Inga onödiga lager. Ingen standardmall. Bara genomtänkt expertis där den gör skillnad.';
-
 export const about: AboutPageContent = {
   meta: {
     title: 'Om oss',
@@ -64,12 +61,32 @@ export const about: AboutPageContent = {
     label: '03 / Våra förmågor',
     title: 'Ett fokuserat, mänskligt arbetssätt.',
     titleAccent: 'Varje dag.',
-    text: capabilitiesText,
+    text: 'Vi kombinerar teknisk förståelse med tydligt affärstänkande och använder rätt expertis i varje del av uppdraget.',
     items: [
-      ...values,
-      { title: 'Förstå affärssammanhanget', text: capabilitiesText },
-      { title: 'Definiera möjligheten tydligt', text: capabilitiesText },
-      { title: 'Gå från riktning till handling', text: capabilitiesText },
+      {
+        title: 'Förstå affärssammanhanget',
+        text: 'Vi utforskar dina mål, utmaningar och nuvarande arbetssätt innan vi rekommenderar nästa steg.',
+      },
+      {
+        title: 'Göra teknikbeslut tydliga',
+        text: 'Vi översätter tekniska val till tydliga fördelar, risker, kostnader och praktiska konsekvenser.',
+      },
+      {
+        title: 'Forma praktiska lösningar',
+        text: 'Vi omsätter behov och möjligheter i lösningar som passar organisationen och de människor som använder dem.',
+      },
+      {
+        title: 'Bygga moderna digitala upplevelser',
+        text: 'Vi utvecklar tydliga och tillförlitliga webbplatser och applikationer som stödjer verkliga affärsbehov och kan växa över tid.',
+      },
+      {
+        title: 'Förbättra arbetssätt',
+        text: 'Vi identifierar ineffektivhet, förenklar processer och kopplar digitala förbättringar till mätbara resultat.',
+      },
+      {
+        title: 'Stödja hållbar förändring',
+        text: 'Vi följer upp genomförande, leverans och överlämning så att utvecklingen fortsätter även efter projektets slut.',
+      },
     ],
   },
   quote: {
