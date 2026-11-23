@@ -25,9 +25,9 @@ export async function Header() {
 
   const navLinks = [
     site.navigation.home,
-    site.navigation.about,
     site.navigation.services,
     site.navigation.contact,
+    site.navigation.about,
   ];
   const { cta, supportCta } = site.header;
 

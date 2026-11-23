@@ -4,12 +4,7 @@ import { CalendarDays, ExternalLink, FileText, LogOut, Receipt } from 'lucide-re
 import Image from 'next/image';
 import { useState, type ChangeEvent } from 'react';
 
-import {
-  logoutAdmin,
-  restoreContentPage,
-  saveContentPage,
-  updateBookingStatus,
-} from '@/app/[locale]/admin/actions';
+import { logoutAdmin, saveContentPage, updateBookingStatus } from '@/app/[locale]/admin/actions';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import type { BookingRecord } from '@/lib/booking/types';
@@ -18,16 +13,25 @@ type ContentByLocale = Record<Locale, Record<string, unknown>>;
 type PanelTab = 'content' | 'bookings';
 
 const pageOptions = [
-  ['home', { en: 'Home', sv: 'Hem' }],
-  ['about', { en: 'About', sv: 'Om oss' }],
-  ['services', { en: 'Services', sv: 'Tjänster' }],
+  [
+    'home',
+    { en: 'Home — services, roles, about and CTA', sv: 'Hem — tjänster, roller, om oss och CTA' },
+  ],
+  ['about', { en: 'About — capabilities and values', sv: 'Om oss — förmågor och värderingar' }],
+  ['services', { en: 'Services — cards and process', sv: 'Tjänster — kort och process' }],
   ['contactStrip', { en: 'Shared contact strip', sv: 'Delad kontaktrad' }],
-  ['contact', { en: 'Contact', sv: 'Kontakt' }],
-  ['booking', { en: 'Booking', sv: 'Bokning' }],
-  ['supportPages', { en: 'Support pages', sv: 'Supportsidor' }],
+  ['contact', { en: 'Contact page', sv: 'Kontaktsida' }],
+  ['booking', { en: 'Booking page', sv: 'Bokningssida' }],
+  ['supportPages', { en: 'IT Support pages', sv: 'IT-supportsidor' }],
   ['privacyPolicy', { en: 'Privacy policy', sv: 'Integritetspolicy' }],
   ['cookiePolicy', { en: 'Cookie policy', sv: 'Cookiepolicy' }],
-  ['site', { en: 'Site settings and footer', sv: 'Webbplats och sidfot' }],
+  [
+    'site',
+    {
+      en: 'Header, navigation, footer and social links',
+      sv: 'Header, navigering, sidfot och sociala länkar',
+    },
+  ],
 ] as const;
 
 const fieldClass =
@@ -43,9 +47,6 @@ const copy = {
     page: 'Page',
     save: 'Save this page',
     saving: 'Saving…',
-    reset: 'Restore original text',
-    resetConfirm: 'Restore the original text for this page on the live site?',
-    restored: 'Original text restored. The live site is updated.',
     saved: 'Saved. The live site is updated.',
     saveFailed: 'The page could not be saved. Sign in again if your session has expired.',
     slotTaken: 'That time is already booked by another request.',
@@ -61,13 +62,13 @@ const copy = {
     cancelled: 'Cancelled',
     completed: 'Completed',
     cancel: 'Cancel booking',
-    restore: 'Restore booking',
     complete: 'Mark complete',
     email: 'Email',
     company: 'Company',
     message: 'Message',
     close: 'Close',
-    contentHelp: 'Choose a page, edit its fields, then save. The live site updates immediately.',
+    contentHelp:
+      'Choose a page and language, update the visible text or image, then save. No layout or technical settings are shown.',
     pages: 'Pages',
     viewSite: 'View website',
     imageSettings: 'Image size and position',
@@ -80,6 +81,7 @@ const copy = {
     uploadingImage: 'Preparing image…',
     imageUploadFailed: 'This image could not be processed. Please try another file.',
     noBookings: 'No bookings found for this filter.',
+    restore: 'Restore booking',
   },
   sv: {
     title: 'Adminpanel',
@@ -90,9 +92,6 @@ const copy = {
     page: 'Sida',
     save: 'Spara den här sidan',
     saving: 'Sparar…',
-    reset: 'Återställ originaltext',
-    resetConfirm: 'Återställa originaltexten för den här sidan på den live-webbplatsen?',
-    restored: 'Originaltexten är återställd. Webbplatsen är uppdaterad.',
     saved: 'Sparat. Webbplatsen är uppdaterad.',
     saveFailed: 'Sidan kunde inte sparas. Logga in igen om sessionen har gått ut.',
     slotTaken: 'Den tiden är redan bokad av en annan förfrågan.',
@@ -108,13 +107,13 @@ const copy = {
     cancelled: 'Avbokad',
     completed: 'Genomförd',
     cancel: 'Avboka',
-    restore: 'Återställ bokning',
     complete: 'Markera som genomförd',
     email: 'E-post',
     company: 'Företag',
     message: 'Meddelande',
     close: 'Stäng',
-    contentHelp: 'Välj en sida, redigera fälten och spara. Webbplatsen uppdateras direkt.',
+    contentHelp:
+      'Välj sida och språk, uppdatera synlig text eller bild och spara. Inga layout- eller tekniska inställningar visas.',
     pages: 'Sidor',
     viewSite: 'Visa webbplatsen',
     imageSettings: 'Bildstorlek och position',
@@ -127,10 +126,98 @@ const copy = {
     uploadingImage: 'Förbereder bilden…',
     imageUploadFailed: 'Bilden kunde inte bearbetas. Försök med en annan fil.',
     noBookings: 'Inga bokningar hittades för filtret.',
+    restore: 'Återställ bokning',
   },
 } as const;
 
+const friendlyFieldNames: Record<string, string> = {
+  meta: 'SEO and page metadata',
+  hero: 'Top hero section',
+  services: 'Services section',
+  cards: 'Content cards',
+  roles: 'Consultant roles section',
+  items: 'List and card items',
+  about: 'About section',
+  why: 'Why TechSalem section',
+  supportPages: 'IT Support pages',
+  // support: 'Support section',
+  cta: 'Bottom call-to-action',
+  title: 'Heading',
+  titleAccent: 'Highlighted heading text',
+  eyebrow: 'Small label above heading',
+  text: 'Description',
+  paragraphs: 'Page paragraphs',
+  areaLabel: 'Card category label',
+  primaryCta: 'Main button',
+  secondaryCta: 'Secondary button',
+  link: 'Button or link',
+  label: 'Button or row label',
+  href: 'Link address',
+  openInNewTab: 'Open in new tab',
+  image: 'Image',
+  src: 'Image',
+  width: 'Image width',
+  height: 'Image height',
+  focalPoint: 'Image position',
+  badge: 'Image overlay badge',
+  // navigation: 'Top navigation',
+  supportCta: 'IT Support header button',
+  footer: 'Footer',
+  // quickLinks: 'Footer quick links',
+  // connect: 'Contact and social links',
+  linkedin: 'LinkedIn',
+  facebook: 'Facebook',
+  infoEmail: 'Email address',
+  supportEmail: 'Support email address',
+  tagline: 'Footer description',
+  slogan: 'Footer slogan',
+  copyright: 'Copyright text',
+  privacyPolicy: 'Privacy policy',
+  cookiePolicy: 'Cookie policy',
+  contactStrip: 'Shared contact strip',
+  process: 'Process section',
+  perspective: 'Introduction section',
+  next: 'Next-step section',
+  steps: 'Process steps',
+  values: 'Company values',
+  capabilities: 'Our capabilities',
+  quote: 'Quote section',
+  stat: 'Statistics section',
+  talk: 'Let’s talk section',
+  direct: 'Direct contact section',
+  // facts: 'Key information',
+  rows: 'Contact rows',
+  intro: 'Booking introduction',
+  // form: 'Booking form text',
+  fields: 'Form field labels',
+  errors: 'Form error messages',
+  success: 'Booking confirmation',
+  privacyNote: 'Booking privacy text',
+  slotsLabel: 'Booking time label',
+  loading: 'Loading text',
+  empty: 'No times available text',
+  submit: 'Submit button text',
+  sending: 'Sending text',
+  honeypotLabel: 'Hidden form label',
+  slotAria: 'Accessible time label',
+  slotUnavailable: 'Unavailable time text',
+  chooseTimeHint: 'Choose-time help text',
+  again: 'Book again text',
+  before: 'Text before link',
+  after: 'Text after link',
+  // header: 'Page header',
+  contentsLabel: 'Contents heading',
+  sections: 'Policy sections',
+  heading: 'Section heading',
+  blocks: 'Section content',
+  subheading: 'Subheading',
+  columns: 'Table columns',
+  caption: 'Table description',
+  source: 'Quote source',
+};
+
 function fieldName(value: string) {
+  if (friendlyFieldNames[value]) return friendlyFieldNames[value];
   return value
     .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
     .replace(/[-_]/g, ' ')
@@ -299,6 +386,7 @@ function ContentTree({
   defaultOpen?: boolean;
 }) {
   const key = String(path[path.length - 1] ?? 'Content');
+  if (shouldHideField(key)) return null;
   const label = fieldName(key);
   const id = `content-${path.join('-')}`;
 
@@ -335,20 +423,7 @@ function ContentTree({
   }
 
   if (typeof value === 'number') {
-    return (
-      <div className="grid gap-2">
-        <label htmlFor={id} className="text-caption font-semibold text-zinc-950">
-          {label}
-        </label>
-        <input
-          id={id}
-          type="number"
-          value={value}
-          onChange={(event) => onChange(path, Number(event.target.value))}
-          className={`${fieldClass} min-h-11`}
-        />
-      </div>
-    );
+    return null;
   }
 
   if (typeof value === 'boolean') {
@@ -373,13 +448,25 @@ function ContentTree({
         </summary>
         <div className="mt-2 grid gap-2">
           {value.map((item, index) => (
-            <ContentTree
-              key={`${id}-${index}`}
-              value={item}
-              path={[...path, index]}
-              onChange={onChange}
-              words={words}
-            />
+            <details key={`${id}-${index}`} className="rounded-lg border border-line bg-white p-4">
+              <summary className="cursor-pointer text-body-sm font-bold text-navy">
+                {key === 'cards'
+                  ? `Card ${index + 1}`
+                  : key === 'roles'
+                    ? `Role ${index + 1}`
+                    : key === 'steps'
+                      ? `Step ${index + 1}`
+                      : `${fieldName(key)} ${index + 1}`}
+              </summary>
+              <div className="mt-4 grid gap-3">
+                <ContentTree
+                  value={item}
+                  path={[...path, index]}
+                  onChange={onChange}
+                  words={words}
+                />
+              </div>
+            </details>
           ))}
         </div>
       </details>
@@ -406,11 +493,9 @@ function ContentTree({
     }
 
     if (typeof record.src === 'string') {
-      const advancedKeys = ['width', 'height', 'focalPoint'].filter(
-        (childKey) => childKey in record,
-      );
+      const advancedKeys: string[] = [];
       const otherKeys = Object.keys(record).filter(
-        (childKey) => childKey !== 'src' && !advancedKeys.includes(childKey),
+        (childKey) => childKey !== 'src' && childKey !== 'alt' && !advancedKeys.includes(childKey),
       );
       return (
         <section className="rounded-lg border border-line bg-white p-4">
@@ -432,24 +517,6 @@ function ContentTree({
                 words={words}
               />
             ))}
-            {advancedKeys.length ? (
-              <details className="rounded-md bg-cloud px-3 py-2">
-                <summary className="cursor-pointer text-caption font-semibold text-ink-muted">
-                  {words.imageSettings}
-                </summary>
-                <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                  {advancedKeys.map((childKey) => (
-                    <ContentTree
-                      key={`${id}-${childKey}`}
-                      value={record[childKey]}
-                      path={[...path, childKey]}
-                      onChange={onChange}
-                      words={words}
-                    />
-                  ))}
-                </div>
-              </details>
-            ) : null}
           </div>
         </section>
       );
@@ -546,28 +613,6 @@ export function AdminPanel({
     }
   }
 
-  async function resetPage() {
-    if (!window.confirm(words.resetConfirm)) return;
-    setSaving(true);
-    setNotice('');
-    try {
-      const result = await restoreContentPage(locale, page);
-      if (!result.ok) {
-        setNotice(words.saveFailed);
-        return;
-      }
-      setContent((current) => ({
-        ...current,
-        [locale]: { ...current[locale], [page]: result.data },
-      }));
-      setNotice(words.restored);
-    } catch {
-      setNotice(words.saveFailed);
-    } finally {
-      setSaving(false);
-    }
-  }
-
   async function changeBookingStatus(id: string, status: BookingRecord['status']) {
     setNotice('');
     try {
@@ -584,7 +629,7 @@ export function AdminPanel({
 
   return (
     <div data-admin-shell className="flex min-h-dvh bg-cloud text-zinc-950">
-      <aside className="sticky top-0 hidden h-dvh w-[248px] shrink-0 flex-col bg-navy md:flex">
+      <aside className="sticky top-0 hidden h-dvh w-62 shrink-0 flex-col bg-navy md:flex">
         <div className="px-5 pt-6 pb-4">
           <p className="text-title-18 font-extrabold tracking-tight text-white">TechSalem</p>
           <p className="mt-1 text-caption text-white/70">{words.title}</p>
@@ -765,14 +810,6 @@ export function AdminPanel({
             >
               {saving ? words.saving : words.save}
             </button>
-            <button
-              type="button"
-              onClick={resetPage}
-              disabled={saving}
-              className="min-h-11 rounded-md border border-line px-4 text-button text-ink-muted hover:bg-cloud disabled:opacity-60"
-            >
-              {words.reset}
-            </button>
             {notice ? (
               <p
                 role="status"
@@ -933,4 +970,36 @@ function BookingManager({
       )}
     </div>
   );
+}
+
+const hiddenFieldKeys = new Set([
+  'width',
+  'height',
+  'focalPoint',
+  'alt',
+  'icon',
+  'tone',
+  'openInNewTab',
+  'absoluteTitle',
+  'meta',
+  'support',
+  'navigation',
+  'quickLinks',
+  'connect',
+  'header',
+  'form',
+  'facts',
+  'button',
+  'primaryCta',
+  'secondaryCta',
+  'link',
+  'links',
+  'href',
+  'label',
+  'value',
+  'Booking',
+]);
+
+function shouldHideField(key: string) {
+  return hiddenFieldKeys.has(key);
 }

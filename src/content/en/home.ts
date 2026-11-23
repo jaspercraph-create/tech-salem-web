@@ -97,30 +97,6 @@ export const home: HomePageContent = {
       },
     ],
   },
-  support: {
-    eyebrow: 'Support',
-    title: 'The right help, right when you need it.',
-    image: {
-      src: '/images/6305419613449164358.jpg',
-      alt: 'TechSalem IT support banner with two people working at computers',
-      width: 1254,
-      height: 1254,
-    },
-    cards: [
-      {
-        icon: 'headphones',
-        title: 'IT support for home',
-        text: 'Practical support for computers, networks and everyday IT—on site or remotely.',
-        link: { label: 'Explore support', href: '/support/support-01' },
-      },
-      {
-        icon: 'headphones',
-        title: 'IT support for business',
-        text: 'Reliable IT operations and practical support that keep small businesses productive and secure.',
-        link: { label: 'Explore support', href: '/support/support-02' },
-      },
-    ],
-  },
   cta: {
     title: "Let's build what's next. Together.",
     text: "Have a business challenge or a new idea? Let's discuss how TechSalem can help you move forward.",

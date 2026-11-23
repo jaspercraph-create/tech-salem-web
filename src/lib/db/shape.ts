@@ -7,7 +7,7 @@ export function matchesShape(expected: unknown, value: unknown, key = ''): boole
 
   if (Array.isArray(expected)) {
     if (!Array.isArray(value) || expected.length === 0) return Array.isArray(value);
-    if (key === 'cards' && value.length !== expected.length) return false;
+    if ((key === 'cards' || key === 'items') && value.length !== expected.length) return false;
     return value.every((item, index) => {
       const template = expected[Math.min(index, expected.length - 1)];
       return matchesShape(template, item);

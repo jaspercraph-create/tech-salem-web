@@ -110,30 +110,6 @@ export const home: HomePageContent = {
       { title: 'System Architect' },
     ],
   },
-  support: {
-    eyebrow: 'Support',
-    title: 'Rätt hjälp, precis när du behöver den.',
-    image: {
-      src: '/images/6305419613449164358.jpg',
-      alt: 'TechSalems IT-supportbanner med två personer som arbetar vid datorer',
-      width: 1254,
-      height: 1254,
-    },
-    cards: [
-      {
-        icon: 'headphones',
-        title: 'IT-support i hemmet',
-        text: 'Praktisk hjälp med datorer, nätverk och IT i hemmet – på plats eller på distans.',
-        link: { label: 'Utforska support', href: '/support/support-01' },
-      },
-      {
-        icon: 'headphones',
-        title: 'IT-support för företag',
-        text: 'Pålitlig drift och praktisk support som hjälper småföretag att arbeta säkert och effektivt.',
-        link: { label: 'Utforska support', href: '/support/support-02' },
-      },
-    ],
-  },
   cta: {
     title: 'Låt oss bygga nästa steg. Tillsammans.',
     text: 'Har du en affärsutmaning eller en ny idé? Låt oss prata om hur TechSalem kan hjälpa dig framåt.',

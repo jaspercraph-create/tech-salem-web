@@ -13,7 +13,7 @@ import { siteUrl } from '@/lib/site-env';
 
 import '../globals.css';
 
-/** Pre-render every page for both locales. */
+/** Generate locale params while page content stays dynamic and database-backed. */
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -39,7 +39,7 @@ export default async function LocaleLayout({ children }: LayoutProps<'/[locale]'
   // data-motion: global switch for scroll-reveal animations ('on' | 'off'), see CLAUDE.md.
   return (
     <html lang={locale} className={fontVariables} data-motion="on" data-scroll-behavior="smooth">
-      <body className="flex flex-col">
+      <body className="flex flex-col" suppressHydrationWarning>
         <NextIntlClientProvider>
           <SkipLink />
           <div data-site-chrome className="print:hidden">

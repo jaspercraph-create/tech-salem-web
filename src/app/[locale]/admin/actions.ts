@@ -2,6 +2,7 @@
 
 import { createHash } from 'node:crypto';
 import { updateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 import {
@@ -16,7 +17,7 @@ import { verifyPassword } from '@/lib/auth/password';
 import { listBookings, setBookingStatus } from '@/lib/booking/repository';
 import type { BookingStatus } from '@/lib/booking/types';
 import { contentKeys } from '@/lib/db/defaults';
-import { restorePublished, writePublished } from '@/lib/db/content';
+import { writePublished } from '@/lib/db/content';
 import { allowRequest } from '@/lib/db/rate-limit';
 import { routing, type Locale } from '@/i18n/routing';
 import type { ContentKey } from '@/types/content';
@@ -83,19 +84,9 @@ export async function saveContentPage(locale: string, key: string, data: unknown
 
   updateTag('content');
   updateTag(`content:${locale}:${key}`);
+  revalidatePath(`/${locale}`, 'layout');
+  revalidatePath(`/${locale === 'sv' ? 'en' : 'sv'}`, 'layout');
   return result;
-}
-
-export async function restoreContentPage(locale: string, key: string) {
-  if (!(await requireAdmin())) return { ok: false as const, error: 'unauthorized' as const };
-  if (!isLocale(locale) || !isContentKey(key)) {
-    return { ok: false as const, error: 'invalid' as const };
-  }
-
-  const data = await restorePublished(locale, key);
-  updateTag('content');
-  updateTag(`content:${locale}:${key}`);
-  return { ok: true as const, data };
 }
 
 export async function updateBookingStatus(id: string, status: string) {

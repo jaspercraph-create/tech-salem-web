@@ -12,16 +12,21 @@ export function seedContent(): Promise<void> {
 }
 
 async function seedContentOnce(): Promise<void> {
-  const existing = await prisma.contentDocument.count();
-  if (existing > 0) return;
-
-  await prisma.contentDocument.createMany({
-    data: (['sv', 'en'] as const).flatMap((locale) =>
-      contentKeys.map((key) => ({
+  const existing = await prisma.contentDocument.findMany({
+    select: { locale: true, key: true },
+  });
+  const existingKeys = new Set(existing.map((row) => `${row.locale}:${row.key}`));
+  const missing = (['sv', 'en'] as const).flatMap((locale) =>
+    contentKeys
+      .filter((key) => !existingKeys.has(`${locale}:${key}`))
+      .map((key) => ({
         locale,
         key,
         data: contentJson(defaultContent[locale][key]),
       })),
-    ),
-  });
+  );
+
+  if (missing.length > 0) {
+    await prisma.contentDocument.createMany({ data: missing });
+  }
 }

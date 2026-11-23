@@ -38,17 +38,3 @@ export async function writePublished<K extends ContentKey>(
   });
   return { ok: true, data: stored as LocaleContent[K] };
 }
-
-export async function restorePublished<K extends ContentKey>(
-  locale: Locale,
-  key: K,
-): Promise<LocaleContent[K]> {
-  const fallback = defaultContent[locale][key];
-  const data = contentJson(fallback);
-  await prisma.contentDocument.upsert({
-    where: { locale_key: { locale, key } },
-    create: { locale, key, data },
-    update: { data },
-  });
-  return fallback;
-}

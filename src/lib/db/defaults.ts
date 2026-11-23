@@ -42,7 +42,7 @@ export const contentKeys = [
   'notFound',
 ] as const satisfies readonly ContentKey[];
 
-/** The original copy from the content files. Restoring a page writes these back. */
+/** Source fallback used only for database seeding when a document is missing. */
 export const defaultContent: Record<Locale, LocaleContent> = {
   sv: {
     site: siteSv,

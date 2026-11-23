@@ -189,12 +189,6 @@ export interface HomePageContent {
     title: string;
     items: Tuple4<{ title: string; text: string }>;
   };
-  support: {
-    eyebrow: string;
-    title: string;
-    image: ImageAsset;
-    cards: Tuple2<{ icon: IconName; title: string; text: string; link: InternalLinkItem }>;
-  };
   cta: CtaBannerContent;
   roles: {
     title: string;

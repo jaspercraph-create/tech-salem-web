@@ -2,10 +2,10 @@ import type { SiteSettings } from '@/types/content';
 
 const navigation = {
   home: { label: 'Hem', href: '/' },
-  about: { label: 'Om oss', href: '/about' },
   services: { label: 'Tjänster', href: '/services' },
-  support: { label: 'Support', href: '/support/support-01' },
   contact: { label: 'Kontakt', href: '/contact' },
+  about: { label: 'Om oss', href: '/about' },
+  support: { label: 'Support', href: '/support/support-01' },
 } satisfies SiteSettings['navigation'];
 
 export const site: SiteSettings = {
